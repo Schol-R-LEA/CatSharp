@@ -1,10 +1,10 @@
 CC=gcc
-CFLAGS= -c -g
-LDFLAGS= -g
+CFLAGS= -g
+LDFLAGS=
 SRC=$(wildcard src/*.c)
 HDR=$(wildcard include/*.h)
 OBJ=$(SRC:.c=.o)
-EXEC=cat#
+EXEC=cats
 
 all: $(SRC) $(OBJ) $(EXEC)
 
@@ -12,7 +12,7 @@ $(EXEC): $(OBJ)
 	$(CC) $(LDFLAGS) $^ -o $@
 
 %.o: %.c $(HDR)
-	$(CC) $(LDFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm *.o $(EXEC)
+	rm -f *.o $(EXEC)

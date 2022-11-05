@@ -1,0 +1,8 @@
+pack Test {
+    using imp Cat#;
+    class Main {
+        public void start(String[] args) {
+            Console.LogInfo(args[0]);
+        }
+    }
+}
