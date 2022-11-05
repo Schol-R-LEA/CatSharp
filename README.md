@@ -6,7 +6,8 @@ CatSharp (cat#, cats) is a programming language based on JS, C# etc
 This application will print on Console info with content "Hello Cat#!"
 ```cat#
 pack Example {
-  imp CatSharp;
+  # import statements can have ";" but don't have to
+  imp CatSharp
   class Main {
     public void main(String[] args) {
       # <Class|pack>Class>.<func>(<args>)
