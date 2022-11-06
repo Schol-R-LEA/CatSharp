@@ -29,10 +29,12 @@ pack <packageName> {
 
 }
 ```
-In package you need to declare minimum 1 class with:
+In package you need to declare minimum 1 class with *public* **void** called *main* with *String[]* args. That should look like this:
 ```cat#
-public void main(String[] args) {
+public class <Class> {
+  public void main(String[] args) {
 
+  }
 }
 ```
 this is requirenments of .cat# application
