@@ -22,3 +22,17 @@ pack Example {
   }
 }
 ```
+# Docs
+To start coding in Cat# you need to know how the base should look like. At first you need to have:
+```cat#
+pack <packageName> {
+
+}
+```
+In package you need to declare minimum 1 class with:
+```cat#
+public void main(String[] args) {
+
+}
+```
+this is requirenments of .cat# application

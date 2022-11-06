@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
             return -1;
         }
 
-        print("Cat#", content);
+        printf("[Cat#] Content of file: \n%s", content);
 
         free(content);
     } else if (strcmp(argv[1], "--help") == 0) {
