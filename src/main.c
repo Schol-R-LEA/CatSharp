@@ -23,15 +23,6 @@ int main(int argc, char** argv) {
         print("Cat#", "Commands:");
         print("Cat#", "cats compile <file path>");
         print("Cat#", "cats --help [command]");
-    } else if (strcmp(argv[1], "examples") == 0) {
-        if (argc == 2) {
-
-        } else if (argc > 2) {
-            if (argc < 3) {
-                print("Cat# - Examples", "Not enough arguments!");
-                return -1;
-            }
-        }
     }
     
     return 0;
