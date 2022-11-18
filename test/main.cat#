@@ -1,8 +1,10 @@
 pack Test {
-    using imp Cat#
+    using imp Cat#;
     class Main {
-        public void start(String[] args) {
-            Console.LogInfo(args[0]);
+        var name = "CatSharp";
+
+        void start() {
+            print(name);
         }
     }
-}
+};

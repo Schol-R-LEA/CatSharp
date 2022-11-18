@@ -1,18 +1,15 @@
-CC=gcc
-CFLAGS= -g
-LDFLAGS=
-SRC=$(wildcard src/*.c)
-HDR=$(wildcard include/*.h)
-OBJ=$(SRC:.c=.o)
-EXEC=cats
+exec = cats
+sources=$(wildcard src/*.c)
+objects=$(sources:.c=.o)
+flags = -g
 
-all: $(SRC) $(OBJ) $(EXEC)
+$(exec): $(objects)
+	gcc $(objects) $(flags) -o $(exec)
 
-$(EXEC): $(OBJ)
-	$(CC) $(LDFLAGS) $^ -o $@
-
-%.o: %.c $(HDR)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c include/%.h
+	gcc -c $(flags) $< -o $@
 
 clean:
-	rm src/*. o
+	-rm *.exe
+	-rm *.o
+	-rm src/*.o
