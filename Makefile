@@ -10,6 +10,4 @@ $(exec): $(objects)
 	gcc -c $(flags) $< -o $@
 
 clean:
-	-rm *.exe
-	-rm *.o
-	-rm src/*.o
+	-del src/*.o

@@ -53,13 +53,14 @@ AST_T* parser_parse_statements(parser_T* parser)
 
     AST_T* ast_statement = parser_parse_statement(parser);
     compound->compound_value[0] = ast_statement;
+    compound->compound_size += 1;
 
     while (parser->current_token->type == TOKEN_SEMI)
     {
         parser_eat(parser, TOKEN_SEMI);
 
         AST_T* ast_statement = parser_parse_statement(parser);
-        if (parser->current_token->type == TOKEN_ID) {
+        if (ast_statement) {
             compound->compound_size += 1;
             compound->compound_value = realloc(
                 compound->compound_value,
@@ -102,6 +103,7 @@ AST_T* parser_parse_function_call(parser_T* parser)
 
     AST_T* ast_expr = parser_parse_expr(parser);
     function_call->function_call_arguments[0] = ast_expr;
+    function_call->function_call_arguments_size += 1;
 
     while (parser->current_token->type == TOKEN_COMMA)
     {
