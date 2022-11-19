@@ -2,6 +2,13 @@
 
 CatSharp (cat#, cats) is a programming language based on JS, C# etc
 
+# Instalation
+## You need:
+> Makefile
+> gcc C compiler
+## Compile:
+Download repo from **https://github.com/** and unzip it to your folder. Then open directory with Command Prompt and type ```make```.
+
 # Examples
 This application will print on Console info with content "Hello Cat#!"
 ```cat#
