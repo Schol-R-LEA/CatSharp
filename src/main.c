@@ -5,9 +5,9 @@
 
 int main(int argc, char* argv) {
     lexer_T* lexer = init_lexer(
-        "var name = \"CatSharp\";\n"
-        "var cat = \"https://en.wikipedia.org/wiki/Cat\";\n"
-        "log(name);\n"
+        "var name = \"Cat's are the best product that you can buy on internet!\";\n"
+        "var yt = \"Subscribe to `Olex7iMatix`\";\n"
+        "log(name, yt);\n"
     );
 
     parser_T* parser = init_parser(lexer);

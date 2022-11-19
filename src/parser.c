@@ -95,9 +95,10 @@ AST_T* parser_parse_term(parser_T* parser)
 AST_T* parser_parse_function_call(parser_T* parser)
 {
     AST_T* function_call = init_ast(AST_FUNCTION_CALL);
-    parser_eat(parser, TOKEN_LPAREN); 
 
     function_call->function_call_name = parser->previous_token->value;
+    
+    parser_eat(parser, TOKEN_LPAREN); 
 
     function_call->function_call_arguments = calloc(1, sizeof(struct AST_STRUCT*));
 
