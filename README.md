@@ -2,6 +2,10 @@
 
 CatSharp (cat#, cats) is a programming language based on JS, C# etc
 
+# Support
+
+CatSharp Support Server (Discord): https://discord.io/catsharp
+
 # Instalation
 ## You need:
 * Makefile
