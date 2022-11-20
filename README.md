@@ -10,21 +10,15 @@ CatSharp (cat#, cats) is a programming language based on JS, C# etc
 Download repo from **https://github.com/** and unzip it to your folder. Then open directory with Command Prompt and type ```make```.
 
 # Examples
-This application will print on Console info with content "Hello Cat#!"
+This application will print in Console message "Hello CatSharp!"
 ```cat#
 pack Example {
   # import statements can have ";" but don't have to
-  imp CatSharp
+  imp Console from CatSharp
   class Main {
-    public void main(String[] args) {
-      # <Class|pack>Class>.<func>(<args>)
-      Example.Main(args);
-    }
-  }
-
-  class Example {
-    public static void Main(String[] args) {
-      CatSharp.Console.print(CatSharp.PrintTypes.Info, "Hello Cat#!");
+    var name = "CatSharp";
+    void start() {
+      Console.log("Hello " + name + "!");
     }
   }
 }
@@ -36,10 +30,10 @@ pack <packageName> {
 
 }
 ```
-In package you need to declare minimum 1 class with *public* **void** called *main* with *String[]* args. That should look like this:
+In package you need to declare minimum 1 class with *public* **void** called *start*. That should look like this:
 ```cat#
-public class <Class> {
-  public void main(String[] args) {
+class <Class> {
+  void start() {
 
   }
 }
