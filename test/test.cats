@@ -1,2 +1,1 @@
-var name = "undefined";
-log("Hello ", name);
+log("b");

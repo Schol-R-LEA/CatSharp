@@ -21,14 +21,15 @@ void lexer_advance(lexer_T* lexer) {
 }
 
 void lexer_skip_whitespace(lexer_T* lexer) {
-    while (lexer->c == ' ' || lexer->c == 10) {
+    while (lexer->c == ' ' || lexer->c == '\n') {
         lexer_advance(lexer);
     }
 }
 
 token_T* lexer_get_next_token(lexer_T* lexer) {
+    printf("%c", lexer->c);
     while (lexer->c != '\0' && lexer->i < strlen(lexer->content)) {
-        if (lexer->c == ' ' || lexer->c == 10) lexer_skip_whitespace(lexer);
+        if (lexer->c == ' ' || lexer->c == '\n') lexer_skip_whitespace(lexer);
 
         if (isalnum(lexer->c))
             return lexer_collect_id(lexer);
