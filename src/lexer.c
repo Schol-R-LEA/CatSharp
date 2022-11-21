@@ -21,15 +21,14 @@ void lexer_advance(lexer_T* lexer) {
 }
 
 void lexer_skip_whitespace(lexer_T* lexer) {
-    while (lexer->c == ' ' || lexer->c == '\n') {
+    while (isspace(lexer->c) || iswspace(lexer->c) || lexer->c == 13) {
         lexer_advance(lexer);
     }
 }
 
 token_T* lexer_get_next_token(lexer_T* lexer) {
-    printf("%c", lexer->c);
     while (lexer->c != '\0' && lexer->i < strlen(lexer->content)) {
-        if (lexer->c == ' ' || lexer->c == '\n') lexer_skip_whitespace(lexer);
+        if (isspace(lexer->c) || iswspace(lexer->c) || lexer->c == 13) lexer_skip_whitespace(lexer);
 
         if (isalnum(lexer->c))
             return lexer_collect_id(lexer);
@@ -38,12 +37,12 @@ token_T* lexer_get_next_token(lexer_T* lexer) {
 
         switch (lexer->c)
         {
-        case '=': return lexer_advance_with_token(lexer, init_token(TOKEN_EQUALS, lexer_get_current_char_as_string(lexer))); break;
-        case ';': return lexer_advance_with_token(lexer, init_token(TOKEN_SEMI, lexer_get_current_char_as_string(lexer))); break;
-        case '(': return lexer_advance_with_token(lexer, init_token(TOKEN_LPAREN, lexer_get_current_char_as_string(lexer))); break;
-        case ')': return lexer_advance_with_token(lexer, init_token(TOKEN_RPAREN, lexer_get_current_char_as_string(lexer))); break;
-        case '.': return lexer_advance_with_token(lexer, init_token(TOKEN_DOT, lexer_get_current_char_as_string(lexer))); break;
-        case ',': return lexer_advance_with_token(lexer, init_token(TOKEN_COMMA, lexer_get_current_char_as_string(lexer))); break;
+            case '=': return lexer_advance_with_token(lexer, init_token(TOKEN_EQUALS, lexer_get_current_char_as_string(lexer))); break;
+            case ';': return lexer_advance_with_token(lexer, init_token(TOKEN_SEMI, lexer_get_current_char_as_string(lexer))); break;
+            case '(': return lexer_advance_with_token(lexer, init_token(TOKEN_LPAREN, lexer_get_current_char_as_string(lexer))); break;
+            case ')': return lexer_advance_with_token(lexer, init_token(TOKEN_RPAREN, lexer_get_current_char_as_string(lexer))); break;
+            case '.': return lexer_advance_with_token(lexer, init_token(TOKEN_DOT, lexer_get_current_char_as_string(lexer))); break;
+            case ',': return lexer_advance_with_token(lexer, init_token(TOKEN_COMMA, lexer_get_current_char_as_string(lexer))); break;
         }
     }
 

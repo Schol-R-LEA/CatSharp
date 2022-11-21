@@ -1,1 +1,2 @@
-log("b");
+var kot = "kot";
+log(kot);
